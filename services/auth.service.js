@@ -13,7 +13,8 @@
     var service = {
       logIn:      logIn,
       isLoggedIn: isLoggedIn,
-      logOut:     logOut
+      logOut:     logOut,
+
     };
     return service;
 

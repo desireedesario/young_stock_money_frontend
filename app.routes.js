@@ -19,9 +19,11 @@
         controller:   "SignInController",
         controllerAs: "signInCtrl"
       })
-      .state("profile", {
-        url:         "/profile",
-        templateUrl: "templates/profile.html"
+      .state("portfolioItem", {
+        url:         "/portfolioItem",
+        templateUrl: "templates/portfolioItem.html"
+        // controller: "portfolioItemController",
+        // controllerAs: "itemCtrl"
       });
 
     $urlRouterProvider.otherwise("/");
