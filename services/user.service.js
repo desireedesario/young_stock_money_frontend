@@ -11,7 +11,9 @@
     $log.info("user service is loaded!");
 
     var service = {
-      create: create
+      create: create,
+      // update: update,
+      // destroy: destroy
     };
     return service;
 
@@ -26,4 +28,20 @@
     }
   }
 
+  //   function update(data) {
+  //     var promise: $http({
+  //       method: 'PATCH',
+  //       url: '/api/users/:id'
+  //     });
+  //
+  //     return promise;
+  // }
+  //
+  // function destroy(data) {
+  //   var promise: $http({
+  //     method: 'DELETE',
+  //     url: '/api/users/:id'
+  //   });
+  //   return promise;
+  // }
 })();

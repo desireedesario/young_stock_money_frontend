@@ -14,13 +14,19 @@
       logIn:      logIn,
       isLoggedIn: isLoggedIn,
       logOut:     logOut,
+      // currentUser: currentUser
 
     };
     return service;
 
+
     function isLoggedIn() {
       return (token.retrieve() != null);
     }
+
+    // function currentUser(){
+    //   $http.token.decode()._id
+    // }
 
     function logIn(data) {
       var promise = $http({

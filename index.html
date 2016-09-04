@@ -8,6 +8,8 @@
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 
+  <!--socket io -->
+  <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
   <!-- If you must use outside libs that aren't Angular-specific, include them BEFORE Angular. -->
   <script src="./vendor/jwt-decode.2.0.1.js"></script>
 
@@ -59,11 +61,13 @@
   </footer>
 
   <script src="./app.js"></script>
+  <script src="./socket-io.js"></script>
   <script src="./app.routes.js"></script>
   <script src="./services/token.service.js"></script>
   <script src="./services/auth.service.js"></script>
   <script src="./services/user.service.js"></script>
   <script src="./controllers/signin.controller.js"></script>
   <script src="./controllers/navbar.controller.js"></script>
+
 </body>
 </html>
