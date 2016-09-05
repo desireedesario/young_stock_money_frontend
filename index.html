@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html ng-app="youngStockMoneyApp">
 <head>
-  <title>Auth App</title>
+  <title>Young Stock Money</title>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
 
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 
-  <!--socket io -->
-  <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-  <!-- If you must use outside libs that aren't Angular-specific, include them BEFORE Angular. -->
   <script src="./vendor/jwt-decode.2.0.1.js"></script>
 
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
@@ -31,23 +28,6 @@
       </nav>
     </header>
 
-    <div class="container">
-      <ul class="nav nav-tabs">
-        <li role="presentation" ui-sref-active="active">
-          <a ui-sref="homePage">Home</a>
-        </li>
-        <li role="presentation" ui-sref-active="active">
-          <a ui-sref="portfolioItem">My Stocks</a>
-        </li>
-        <li role="presentation" ui-sref-active="active" ng-show="main.user.isLoggedIn()">
-          <a ui-sref="stocks">Stocks</a>
-        </li>
-        <li ng-show="main.user.isLoggedIn()">
-          <a class="btn" ng-click="main.logOut()">Logout {{ main.user.name }}</a>
-        </li>
-      </ul>
-
-
     <main class="content" ui-view>
       <!-- ui-router (aka ui.router) inserts templates here -->
     </main>
@@ -61,7 +41,6 @@
   </footer>
 
   <script src="./app.js"></script>
-  <script src="./socket-io.js"></script>
   <script src="./app.routes.js"></script>
   <script src="./services/token.service.js"></script>
   <script src="./services/auth.service.js"></script>

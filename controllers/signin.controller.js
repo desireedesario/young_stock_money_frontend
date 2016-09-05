@@ -36,7 +36,7 @@
           // on success
           function(decodedToken) {
             $log.info('Logged in!', decodedToken);
-            $state.go('welcome');
+            $state.go('home');
           },
           // on error
           function(err) {
@@ -53,7 +53,7 @@
           // on success
           function(decodedToken) {
             $log.info('Logged in!', decodedToken);
-            $state.go('welcome');
+            $state.go('home');
           },
           // on error
           function(err) {
@@ -64,6 +64,4 @@
 
     $log.info("SignInController is loaded!");
   }
-
-
 })();

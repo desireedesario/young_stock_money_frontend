@@ -11,7 +11,7 @@
     $log.info("user service is loaded!");
 
     var service = {
-      create: create,
+      create: create
       // update: update,
       // destroy: destroy
     };
@@ -20,7 +20,7 @@
     function create(data) {
       var promise = $http({
         method: 'POST',
-        url:    '/api/users',
+        url:    'http://localhost:3000/users',
         data:   data
       });
 

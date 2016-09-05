@@ -13,7 +13,7 @@
     var service = {
       logIn:      logIn,
       isLoggedIn: isLoggedIn,
-      logOut:     logOut,
+      logOut:     logOut
       // currentUser: currentUser
 
     };
@@ -27,11 +27,10 @@
     // function currentUser(){
     //   $http.token.decode()._id
     // }
-
     function logIn(data) {
       var promise = $http({
         method: 'POST',
-        url:    '/api/token',
+        url:    'http://localhost:3000/token',
         data:   data,
         headers: {
           'Content-Type': 'application/json'
