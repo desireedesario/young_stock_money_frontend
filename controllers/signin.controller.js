@@ -14,6 +14,7 @@
     vm.signUp = {
       email:    "",
       name:     "",
+      cash:  50000,
       password: "",
       passwordConfirmation: ""
     };
