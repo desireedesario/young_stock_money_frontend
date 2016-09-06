@@ -1,3 +1,5 @@
+//gets the user, updates the user
+
 (function () {
   'use strict';
 
@@ -26,12 +28,11 @@
 
       return promise;
     }
-  }
 
   //   function update(data) {
   //     var promise: $http({
   //       method: 'PATCH',
-  //       url: '/api/users/:id'
+  //       url: 'http://localhost:3000/users'
   //     });
   //
   //     return promise;
@@ -40,8 +41,9 @@
   // function destroy(data) {
   //   var promise: $http({
   //     method: 'DELETE',
-  //     url: '/api/users/:id'
+  //     url: 'http://localhost:3000/users'
   //   });
   //   return promise;
   // }
+} //close userService
 })();

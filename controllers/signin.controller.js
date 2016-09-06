@@ -9,6 +9,7 @@
 
   function SignInController($log, authService, userService, $state) {
     var vm = this;
+    vm.authService = authService;
 
     // BINDINGS
     vm.signUp = {
@@ -25,6 +26,7 @@
     };
     vm.submitLogIn = submitLogIn;
     vm.conflict = false;
+
 
     // FUNCTIONS
     function submitSignUp() {

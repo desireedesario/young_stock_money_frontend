@@ -2,6 +2,6 @@
   "use strict";
 
   angular
-    .module("youngStockMoneyApp", ["ui.router"]);
+    .module("youngStockMoneyApp", ["ui.router", "ngResource"]);
 
 })();

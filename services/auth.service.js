@@ -13,8 +13,8 @@
     var service = {
       logIn:      logIn,
       isLoggedIn: isLoggedIn,
-      logOut:     logOut
-      // currentUser: currentUser
+      logOut:     logOut,
+      currentUser: currentUser
 
     };
     return service;
@@ -24,9 +24,10 @@
       return (token.retrieve() != null);
     }
 
-    // function currentUser(){
-    //   $http.token.decode()._id
-    // }
+    function currentUser(){
+      return token.decode()
+    }
+
     function logIn(data) {
       var promise = $http({
         method: 'POST',
