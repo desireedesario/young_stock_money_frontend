@@ -11,7 +11,9 @@
     $stateProvider
       .state("home", {
         url:         "/",
-        templateUrl: "/templates/home.html"
+        templateUrl: "/templates/home.html",
+        controller: "YahooFinanceController",
+        controllerAs: "vm"
       })
       .state("signin", {
         url:          "/signin",

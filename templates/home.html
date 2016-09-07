@@ -1,7 +1,22 @@
 <div class="container">
-<h1>Welcome to Young Money App</h1>
-<p>This will soon be a stock simulator.</p>
+  <h1>Welcome to Young Stock Money App</h1>
+  <p>This will soon be a stock simulator.</p>
+  <input ng-model="vm.symbol"></div>
+  <button ng-click="vm.getQuote()">Get Quote</button>
+    <div class="well">{{vm.data}}</div>
+  <hr>
 
-{{ 1+ 1}}
+<ul style="padding:4%;">
+  <li style="padding:1%;list-style-type:none;" ng-repeat="stock in vm.results">
+    <span ng-click="vm.commentClick(stock)">
+
+      Name: {{stock.name}}<br>
+      Ticker: {{stock.symbol}}<br>
+      Ask Price: {{stock.ask}}<br>
+      Bid Price: {{stock.bid}}<br>
+      {{stock.percentChange}}
+      <span>
+  </li>
+</ul>
 
 </div>

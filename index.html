@@ -1,54 +1,85 @@
 <!DOCTYPE html>
 <html ng-app="youngStockMoneyApp">
-<head>
-  <title>Young Stock Money</title>
-  <meta charset="utf-8">
+  <head>
+    <title>Young Stock Money</title>
+    <meta charset="utf-8">
+
+    <!-- CSS stylesheets -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+
+    <!-- JS scripts -->
+    <!-- for authorization and accessing users -->
+    <script src="./vendor/jwt-decode.2.0.1.js"></script>
+    <!-- angular scripts -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-resource.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+  </head>
+
+  <body ng-controller="SignInController as signinCtrl">
+    <div class="container-fluid">
+
+      <!-- NAV BAR -->
+      <header ng-controller="NavbarController as vm">
+        <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #bdefbf;">
+          <div class="container">
+            <a ui-sref="home" class="navbar-brand">Young Stock Money</a>
+            <button ng-hide="vm.authService.isLoggedIn()" ui-sref="signin" type="button" class="btn btn-default navbar-btn navbar-right">Sign in</button>
+            <button ng-show="vm.authService.isLoggedIn()" ng-click= "vm.authService.logOut()" type="button" class="btn btn-default navbar-btn navbar-right">Sign out</button>
+            <h5 ng-show="vm.authService.isLoggedIn()" href='#'>Hello, {{ signinCtrl.authService.currentUser().name }}!<br> Cash: {{ signinCtrl.authService.currentUser().cash }}</h5>
+          </div>
+        </nav>
+      </header>
+      <!-- NAV BAR -->
+
+      <main class="content" ui-view>
+        <!-- ui-router (aka ui.router) inserts templates here -->
+      </main>
 
 
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+      <!-- <div id="chat">
+      Name: <input type="text" id="name">
+      <button id='submit-name'>Enter Name</button>
+  		<ul id="messages"></ul>
+      <ul id='connected-users'></ul>
+  		<form action="">
+  			<input id="m" autocomplete="off" /><button>Send</button>
+  		</form>
+    </div>
+      <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+      </style> -->
 
-  <script src="./vendor/jwt-decode.2.0.1.js"></script>
 
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-resource.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
-</head>
+    </div> <!-- div.container-fluid -->
 
-<body ng-controller="SignInController as signinCtrl">
-  <!-- NAV BAR -->
-  <div class="container-fluid">
-    <header ng-controller="NavbarController as vm">
-      <nav class="navbar navbar-light navbar-fixed-top" style="background-color: #e3f2fd;">
-        <div class="container">
-          <a ui-sref="home" class="navbar-brand">Home</a>
-          <button ng-hide="vm.authService.isLoggedIn()" ui-sref="signin" type="button" class="btn btn-default navbar-btn navbar-right">Sign in</button>
-          <a ng-show="vm.authService.isLoggedIn()" href='#'>Hello, {{ signinCtrl.authService.currentUser().name }}!</a>
-          <button ng-show="vm.authService.isLoggedIn()" ng-click= "vm.authService.logOut()" type="button" class="btn btn-default navbar-btn navbar-right">Sign out</button>
-        </div>
-      </nav>
-    </header>
+    <footer>
+      <hr>
+      <span>Desiree Desario</span>
+      <br>
+      <span> 2016, Los Angeles CA</span>
+    </footer>
 
-    <main class="content" ui-view>
-      <!-- ui-router (aka ui.router) inserts templates here -->
-    </main>
-  </div> <!-- div.container-fluid -->
+    <!-- connecting created JS scripts -->
+    <script src="./app.js"></script>
+    <script src="./app.routes.js"></script>
+    <script src="./services/token.service.js"></script>
+    <script src="./services/auth.service.js"></script>
+    <script src="./services/user.service.js"></script>
+    <script src="./services/yahooFinance.service.js"></script>
+    <script src="./controllers/signin.controller.js"></script>
+    <script src="./controllers/navbar.controller.js"></script>
+    <script src="./controllers/stock.controller.js"></script>
+    <!-- <script src="./assets/javascripts/socket.js"></script> -->
 
-  <footer>
-    <hr>
-    <span>Desiree Desario</span>
-    <br>
-    <span> 2016, Los Angeles CA</span>
-  </footer>
-
-  <script src="./app.js"></script>
-  <script src="./app.routes.js"></script>
-  <script src="./services/token.service.js"></script>
-  <script src="./services/auth.service.js"></script>
-  <script src="./services/user.service.js"></script>
-  <script src="./controllers/signin.controller.js"></script>
-  <script src="./controllers/navbar.controller.js"></script>
-
-</body>
+  </body>
 </html>
