@@ -5,9 +5,9 @@ angular
   .module('youngStockMoneyApp')
   .controller('YahooFinanceController', YahooFinanceController);
 
-YahooFinanceController.$inject = ['$http', 'yahooFinanceService']
+YahooFinanceController.$inject = ['$http', 'yahooFinanceService', 'tokenService']
 
-function YahooFinanceController($http, yahooFinanceService) {
+function YahooFinanceController($http, yahooFinanceService, tokenService) {
   var vm = this;
   vm.symbol = "";
   vm.data = "";
@@ -21,14 +21,14 @@ function YahooFinanceController($http, yahooFinanceService) {
     var portfolioItem = {
       stockName: stock.name,
       stockTicker: stock.symbol,
-      share: stock.share,
-      stockPrice: stock.bid
+      shares: stock.shares,
+      purchasePrice: stock.bid,
+      user: tokenService.decode()._id
     };
 
     $http
-      .post('http://localhost:3000/users/me', portfolioItem)
+      .post('http://localhost:3000/portfolioitems', portfolioItem)
       .success(function() {
-        console.log('Desi rocks my world');
       })
   }
 

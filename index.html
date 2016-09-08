@@ -18,7 +18,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
   </head>
 
-  <body ng-controller="SignInController as signinCtrl">
+  <body>
     <div class="container-fluid">
 
       <!-- NAV BAR -->
@@ -26,8 +26,8 @@
         <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #bdefbf;">
           <div class="container">
 
-            <a ui-sref="home" class="navbar-brand">Young Stock Money |</a>
-            <a type="button" class="navbar-brand" ng-show="vm.authService.isLoggedIn()" ui-sref="portfolio">View My Stocks</a>
+            <a ui-sref="home" class="navbar-brand">Young Stock Money </a>
+            <a type="button" class="navbar-brand" ng-show="vm.authService.isLoggedIn()" ui-sref="portfolio"> | View My Stocks</a>
             <button ng-hide="vm.authService.isLoggedIn()" ui-sref="signin" type="button" class="btn btn-default navbar-btn navbar-right">Sign in</button>
             <button ng-show="vm.authService.isLoggedIn()" ng-click= "vm.authService.logOut()" type="button" class="btn btn-default navbar-btn navbar-right">Sign out</button>
             <h5 ng-show="vm.authService.isLoggedIn()">Hello, {{ signinCtrl.authService.currentUser().name }}!<br> Cash: {{ signinCtrl.authService.currentUser().cash }}</h5>

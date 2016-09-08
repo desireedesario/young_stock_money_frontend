@@ -19,7 +19,7 @@
 
         <b>Buy Shares at:</b>
         <input type="number" name="quantity"
-         min="0" max="100" step="1" value="0">
+         min="0" max="100" step="1" value="0" ng-model="stock.shares">
         <input type="submit" placeholder="Buy Shares" ng-click="vm.buyStock(stock)">
 
 
