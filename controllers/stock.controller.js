@@ -14,10 +14,22 @@ function YahooFinanceController($http, yahooFinanceService) {
   vm.results = [];
   vm.getQuote = getQuote;
   vm.getTop100 = getTop100;
-  vm.commentClick = commentClick
+  vm.buyStock = buyStock
 
-  function commentClick(stock) {
-    console.log('You want to buy ' + stock.name)
+  function buyStock(stock) {
+    console.log('You want to buy ' + stock.name);
+    var portfolioItem = {
+      stockName: stock.name,
+      stockTicker: stock.symbol,
+      share: stock.share,
+      stockPrice: stock.bid
+    };
+
+    $http
+      .post('http://localhost:3000/users/me', portfolioItem)
+      .success(function() {
+        console.log('Desi rocks my world');
+      })
   }
 
   function getQuote() {

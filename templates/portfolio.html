@@ -1,0 +1,12 @@
+<div ng-controller="NavbarController as vm">
+  <h2>{{ signinCtrl.authService.currentUser().name }}'s Stocks</h2>
+
+  <div class="userStocks">
+    <ul>
+      <li ng-repeat="portfolioitems in signinCtrl.authService.currentUser().portfolio">
+        {{portfolioitems.name}}
+      </li>
+    </ul>
+
+  </div>
+</div>

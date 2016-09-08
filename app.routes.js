@@ -21,11 +21,11 @@
         controller:   "SignInController",
         controllerAs: "vm"
       })
-      .state("portfolioItem", {
-        url:         "/portfolioItem",
-        templateUrl: "/templates/portfolioItem.html"
-        // controller: "portfolioItemController",
-        // controllerAs: "itemCtrl"
+      .state("portfolio", {
+        url:         "/portfolio",
+        templateUrl: "/templates/portfolio.html",
+        controller: "YahooFinanceController",
+        controllerAs: "vm"
       });
 
     $urlRouterProvider.otherwise("/");

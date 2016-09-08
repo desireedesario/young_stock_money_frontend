@@ -1,6 +1,7 @@
 <div class="container">
   <h1>Welcome to Young Stock Money App</h1>
   <p>This will soon be a stock simulator.</p>
+
   <input ng-model="vm.symbol"></div>
   <button ng-click="vm.getQuote()">Get Quote</button>
     <div class="well">{{vm.data}}</div>
@@ -8,14 +9,35 @@
 
 <ul style="padding:4%;">
   <li style="padding:1%;list-style-type:none;" ng-repeat="stock in vm.results">
-    <span ng-click="vm.commentClick(stock)">
+    <span>
 
       Name: {{stock.name}}<br>
       Ticker: {{stock.symbol}}<br>
       Ask Price: {{stock.ask}}<br>
       Bid Price: {{stock.bid}}<br>
-      {{stock.percentChange}}
-      <span>
+      {{stock.percentChange}}<br>
+
+        <b>Buy Shares at:</b>
+        <input type="number" name="quantity"
+         min="0" max="100" step="1" value="0">
+        <input type="submit" placeholder="Buy Shares" ng-click="vm.buyStock(stock)">
+
+
+
+      <!-- <div class="input-group">
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]">
+              <span class="glyphicon glyphicon-minus"></span>
+            </button>
+        </span>
+        <input type="text" name="quant[2]" class="form-control input-number" value="10" min="1" max="100">
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+        </span>
+      </div>
+      <span> -->
   </li>
 </ul>
 
