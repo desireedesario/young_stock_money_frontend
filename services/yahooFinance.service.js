@@ -10,7 +10,7 @@
 
   function yahooFinanceService($log, $http){
     $log.info("yahoo finance is loaded!");
-    var apiUrl = 'http://finance.yahoo.com/d/quotes.csv?s=';
+    var apiUrl = 'https://finance.yahoo.com/d/quotes.csv?s=';
     var stockInfo = "&f=nsabc";
     // var stockName = "n";
     // var stockSymbol = "s";
