@@ -31,7 +31,7 @@
     function logIn(data) {
       var promise = $http({
         method: 'POST',
-        url:    'https://young-stock-money-api.herokuapp.com/token',
+        url:    'http://young-stock-money-api.herokuapp.com/token',
         data:   data,
         headers: {
           'Content-Type': 'application/json'
