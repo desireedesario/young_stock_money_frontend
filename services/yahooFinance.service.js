@@ -1,4 +1,4 @@
-//gets the yahoo data
+//gets the yahoo data now
 (function () {
   'use strict';
 
