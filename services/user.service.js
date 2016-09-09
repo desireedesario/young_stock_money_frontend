@@ -22,7 +22,7 @@
     function create(data) {
       var promise = $http({
         method: 'POST',
-        url:    'https://young-stock-money-api.herokuapp.com/users',
+        url:    'http://localhost:3000/users',
         data:   data
       });
 
@@ -32,7 +32,7 @@
   //   function update(data) {
   //     var promise: $http({
   //       method: 'PATCH',
-  //       url: 'https://young-stock-money-api.herokuapp.com/users'
+  //       url: 'http://localhost:3000/users'
   //     });
   //
   //     return promise;
@@ -41,7 +41,7 @@
   // function destroy(data) {
   //   var promise: $http({
   //     method: 'DELETE',
-  //     url: 'https://young-stock-money-api.herokuapp.com/users'
+  //     url: 'http://localhost:3000/users'
   //   });
   //   return promise;
   // }
