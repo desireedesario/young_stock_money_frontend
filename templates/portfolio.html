@@ -1,12 +1,18 @@
-<div ng-controller="NavbarController as vm">
-  <h2>{{ signinCtrl.authService.currentUser().name }}'s Stocks</h2>
+<h2>{{ vm.currentUser.name }}'s Stocks</h2>
+<h3>You have ${{ vm.currentUser.cash }}</h3>
+<div class="userStocks">
+  <ul>
 
-  <div class="userStocks">
-    <ul>
-      <li ng-repeat="portfolioitems in signinCtrl.authService.currentUser().portfolio">
-        {{portfolioitems.name}}
-      </li>
-    </ul>
+    <li ng-repeat="item in vm.currentUser.portfolio" style="list-style-type:none;padding:1%;">
+      {{ item.stockName }}<br>
+      Shares: {{item.shares}}<br>
+      Purchased at: {{item.purchasePrice}}<br>
 
-  </div>
+      <b>Sell Shares:</b>
+      <input type="number" name="quantity"
+       min="0" max="{{item.shares}}" step="1" value="0" ng-model="item.sellNumber">
+      <input type="submit" placeholder="Buy Shares" ng-click="vm.sellStock(item)">
+    </li>
+  </ul>
+</div>
 </div>

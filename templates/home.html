@@ -1,28 +1,35 @@
 <div class="container">
-  <h1>Welcome to Young Stock Money App</h1>
-  <p>This will soon be a stock simulator.</p>
 
-  <input ng-model="vm.symbol"></div>
+    <h1>Welcome to Young Stock Money App</h1>
+    <h3 class="alert alert-success" style="width:15%;">
+    Hello, {{ vm.currentUser.name}}<br>
+    Cash: {{ vm.currentUser.cash}}<br>
+    </h3>
+  </div>
+
+  <!-- END OF SIGNIN CONTROLLER, INTITIALIZING YAHOOFINANCECONTROLLER -->
+
+
+  <input ng-model="vm.symbol">
   <button ng-click="vm.getQuote()">Get Quote</button>
-    <div class="well">{{vm.data}}</div>
+    <div class="well" style="width:60%;">{{vm.data}}</div>
   <hr>
 
-<ul style="padding:4%;">
-  <li style="padding:1%;list-style-type:none;" ng-repeat="stock in vm.results">
-    <span>
+  <div class="pre-scrollable" style="width:100%;height: 40%;">
+    <h2>TOP TRENDING STOCKS</h2>
+    <ul style="padding:4%;">
+      <li style="padding:1%;list-style-type:none;" ng-repeat="stock in vm.results">
 
-      Name: {{stock.name}}<br>
-      Ticker: {{stock.symbol}}<br>
-      Ask Price: {{stock.ask}}<br>
-      Bid Price: {{stock.bid}}<br>
-      {{stock.percentChange}}<br>
+          Name: {{stock.name}}<br>
+          Ticker: {{stock.symbol}}<br>
+          Ask Price: {{stock.ask}}<br>
+          Bid Price: {{stock.bid}}<br>
+          {{stock.percentChange}}<br>
 
-        <b>Buy Shares at:</b>
-        <input type="number" name="quantity"
-         min="0" max="100" step="1" value="0" ng-model="stock.shares">
-        <input type="submit" placeholder="Buy Shares" ng-click="vm.buyStock(stock)">
-
-
+            <b>Buy Shares at:</b>
+            <input type="number" name="quantity"
+             min="0" max="100" step="1" value="0" ng-model="stock.shares">
+            <input type="submit" placeholder="Buy Shares" ng-click="vm.buyStock(stock)">
 
       <!-- <div class="input-group">
         <span class="input-group-btn">
@@ -38,7 +45,8 @@
         </span>
       </div>
       <span> -->
-  </li>
-</ul>
 
-</div>
+      </li>
+    </ul>
+    </div>
+  </div>
