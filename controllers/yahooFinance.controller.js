@@ -40,7 +40,7 @@ function YahooFinanceController($http, yahooFinanceService, tokenService, $state
     };
 
     $http
-      .post('http://localhost:3000/portfolioitems/', portfolioItem, {headers: {
+      .post('http://young-stock-money-api.herokuapp.com//portfolioitems/', portfolioItem, {headers: {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + tokenService.retrieve()
       }})
@@ -67,7 +67,7 @@ function YahooFinanceController($http, yahooFinanceService, tokenService, $state
     };
 
     $http
-      .put('http://localhost:3000/portfolioitems/' + portItem._id, sharesSold,
+      .put('http://young-stock-money-api.herokuapp.com/portfolioitems/' + portItem._id, sharesSold,
       {headers: {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + tokenService.retrieve()
@@ -113,7 +113,7 @@ function YahooFinanceController($http, yahooFinanceService, tokenService, $state
   function getUser() {
     console.log("trying to get user")
     $http
-      .get('http://localhost:3000/users/me', {
+      .get('http://young-stock-money-api.herokuapp.com/users/me', {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + tokenService.retrieve()
@@ -133,7 +133,7 @@ function YahooFinanceController($http, yahooFinanceService, tokenService, $state
   //AFTER GRABBING USER, GRAB STOCKS OF CURRENT USER
   function getUserStocks(user){
     $http
-    .get('http://localhost:3000/portfolioitems')
+    .get('http://young-stock-money-api.herokuapp.com/portfolioitems')
     .success(function(stock) {
       return portfolioitems;
     })

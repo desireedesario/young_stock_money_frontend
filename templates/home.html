@@ -1,6 +1,7 @@
 <div class="container">
-
+  <div id="header">
     <h1>Welcome to Young Stock Money App</h1>
+    <h2>Practice Stock Trading in a Virtual Stock Exchange</h2>
     <h3 class="alert alert-success" style="width:15%;">
     Hello, {{ vm.currentUser.name}}<br>
     Cash: {{ vm.currentUser.cash}}<br>
@@ -11,14 +12,15 @@
 
 
   <input ng-model="vm.symbol">
-  <button ng-click="vm.getQuote()">Get Quote</button>
+    <button ng-click="vm.getQuote()">Get Quote</button>
     <div class="well" style="width:60%;">{{vm.data}}</div>
-  <hr>
+    <hr>
+    <input type="text" ng-model="fillyFill">
 
-  <div class="pre-scrollable" style="width:100%;height: 40%;">
+    <div class="pre-scrollable" style="width:100%;height: 40%;">
     <h2>TOP TRENDING STOCKS</h2>
     <ul style="padding:4%;">
-      <li style="padding:1%;list-style-type:none;" ng-repeat="stock in vm.results">
+      <li style="padding:1%;list-style-type:none;" ng-repeat="stock in vm.results | filter : {name : fillyFill}">
 
           Name: {{stock.name}}<br>
           Ticker: {{stock.symbol}}<br>
@@ -26,10 +28,10 @@
           Bid Price: {{stock.bid}}<br>
           {{stock.percentChange}}<br>
 
-            <b>Buy Shares at:</b>
-            <input type="number" name="quantity"
-             min="0" max="100" step="1" value="0" ng-model="stock.shares">
-            <input type="submit" placeholder="Buy Shares" ng-click="vm.buyStock(stock)">
+      <b>Buy Shares at:</b>
+      <input type="number" name="quantity"
+       min="0" max="100" step="1" value="0" ng-model="stock.shares">
+      <input type="submit" placeholder="Buy Shares" ng-click="vm.buyStock(stock)">
 
       <!-- <div class="input-group">
         <span class="input-group-btn">

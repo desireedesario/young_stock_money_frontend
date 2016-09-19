@@ -22,7 +22,7 @@
     function create(data) {
       var promise = $http({
         method: 'POST',
-        url:    'http://localhost:3000/users',
+        url:    'http://young-stock-money-api.herokuapp.com//users',
         data:   data
       });
 
